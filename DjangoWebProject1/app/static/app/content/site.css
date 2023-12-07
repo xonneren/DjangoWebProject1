@@ -1,0 +1,194 @@
+body {
+    padding-top: 150px;
+    padding-bottom: 20px;
+    background-image: url('fon.png');
+    background-repeat: repeat;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+ul {
+    padding-top: 23px;
+    font-size: 12px;
+}
+
+.navbar-brand {
+    font-size: 12px;
+}
+
+.carousel-inner {
+    display: inline-block;
+    width: 600px;
+}
+
+.img {
+    float: left;
+}
+
+.map {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 8px;
+}
+
+.address {
+    float: left;
+    margin-right: 30px;
+}
+
+.footer {
+    background-color: #662479;
+    position: absolute;
+    margin-top: 15px;
+    width: 100%;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.carousel-inner {
+    outline: 4px solid #662479;
+    border: 6px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 255px;
+}
+
+.col-auto {
+    background-color: #662479;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 19px;
+    position: relative;
+    left: 22%;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+.col-2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.usluga-list {
+    float:left;
+}
+
+.forma {
+    width: 745px;
+    height: 220px;
+    border: 6px solid #ffffff;
+    border-radius: 10px;
+    outline: 2px solid #cecece;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 183px;
+}
+
+.button {
+    margin-left: 315px;
+}
+
+label {
+    margin-top: 5px;
+}
+
+.pic {
+    border-radius: 10px;
+}
+
+.row {
+    margin-top: 20px;
+    margin-left: 43px;
+}
+
+.vse {
+    margin-left: 520px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+
+.polozh1 {
+    font-size:25px;
+    margin-top:10px;
+    margin-left:86px;
+}
+
+.polozh2 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.polozh3 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+table {
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+td {
+    width: 360px;
+}
+
+.but1 {
+    margin-bottom:20px;
+}
+
+.vse_u {
+    color:#ffffff;
+    text-align:center;
+}
+
+.nazad {
+    margin-bottom: 20px;
+}

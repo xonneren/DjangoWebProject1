@@ -1,0 +1,32 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<center><h2>{{ title }}</h2></center>
+<hr />
+<!--<h3>{{ message }}</h3>-->
+
+<div class="address">
+    <address>
+        <b>Медицинский центр "VITA-Мед"</b><br />
+        г. Санкт-Петербург, 10-я Советская ул., д.8<br />
+        <br />
+        <b>Ежедневно:</b> ПН - ВС 08:00 - 20:00 / по предварительной записи<br />
+        <br />
+        <b>Наш телефон:</b>
+        <abbr title="Телефон"></abbr><br />
+        +7(911)038-82-59 (моб. телефон)<br />
+        <abbr title="Телефон"></abbr>
+        +7(8112)430-64-15 (запись на приём)
+    </address>
+
+<address>
+    <strong>Напишите нам на почту:</strong>   <a href="mail@vitamed.ru">mail@vitamed.ru</a><br />
+</address>
+</div>
+
+<div class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A607f90531c814fbe9d10fccd811c25fe8c67ceb4fa11ee5d46e09d42f70e4250&amp;width=438&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+
+{% endblock %}

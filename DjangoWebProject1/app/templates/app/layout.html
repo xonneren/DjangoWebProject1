@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Медицинский центр "VITA-Med", диагностика МРТ, КТ, приём специалистов, анализы</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand"> <img class="logo" src="{% static 'app/content/logo_one.png'%}" alt="logo" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}">Главная</a></li>
+                    <li><a href="{% url 'about' %}">О нас</a></li>
+                    <li><a href="{% url 'uslugi' %}">Услуги</a></li>
+                    <li><a href="{% url 'contact' %}">Контакты</a></li>
+                    {% if not user.is_superuser and not user.is_staff %}
+                    <li><a href="{% url 'obrsvyaz' %}">Обратная связь</a></li>
+                    <li><a href="{% url 'newzapis' %}">Запись на приём</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'blog' %}">Блог</a></li>
+                    {% if user.is_superuser or user.is_staff %}
+                    <li><a href="{% url 'newpost' %}">Добавить статью</a></li>
+                    <li><a href="{% url 'admin:index' %}">Панель управления</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'videopost' %}">Видео</a></li>
+                </ul>
+                {% include 'app/loginpartial.html' %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+{% block content %}{% endblock %}
+        <!--<hr/>
+        <footer>
+            <p>&copy; {{ year }} - VITA-Med</p>
+        </footer>-->
+    </div>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+<div class="footer">
+    <hr />
+    <p>&copy; {{ year }} - VITA-Med</p>
+</div>
+</html>
+
+<script>
+    function b1_mouseover()
+    {
+        $('#b1').css('background-color', 'yellow');
+    }
+    $('#b1').mouseover(b1_mouseover);
+</script>
+
+<script>
+    function b1_mouseout()
+    {
+        $('#b1').css('background-color', 'white');
+    }
+    $('#b1').mouseout(b1_mouseout);
+</script>
+
+<script>
+    document.getElementById('history-button').addEventListener('click', () => {
+      history.back();
+    });
+</script>

@@ -1,0 +1,45 @@
+{% extends "app/layout.html" %}
+{% block content %}
+
+<center><h2>{{ title }}</h2></center>
+<hr />
+
+{% for category in categories %}
+
+<div class="col-auto">
+    {% if category.pk == list_selected %}
+    <a class="btn btn-warning" href="{{ category.get_absolute_url }}"> {{ category.name }}</a>
+    {% else %}
+    <a class="btn btn-warning" href="{{ category.get_absolute_url }}"> {{ category.name }}</a>
+    {% endif %}
+</div>
+
+{% endfor %}
+<br />
+
+{% for usluga in uslugi %}
+
+<br />
+<hr />
+
+<div class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <h3>{{ usluga.name }}</h3>
+                </td>
+                <td>
+                    <h5>{{ usluga.description }}</h5>
+                </td>
+                <td>
+                    <center><h4>{{ usluga.price }} руб.</h4></center>
+                    <center><a class="btn btn-warning" href="{% url 'newzapis' %}?usluga={{ usluga.id }}">Записаться на приём</a></center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endfor %}
+{% endblock %}

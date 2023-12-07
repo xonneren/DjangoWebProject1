@@ -1,0 +1,20 @@
+{% extends "app/layout.html" %}
+{% block content %}
+
+<center><h2>{{ title }}</h2></center>
+<hr />
+
+<h4>Хотите записаться на приём в наш центр? Закажите обратный звонок и мы свяжемся с Вами!</h4>
+<div class="forma">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <br />
+            {{ zapisform.as_p }}
+            <br />
+            <input type="submit" class="button" value="Отправить">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

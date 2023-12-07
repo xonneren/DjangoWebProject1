@@ -1,0 +1,87 @@
+﻿{% extends "app/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!--<div class="jumbotron">
+    <h1>Добро пожаловать в медицинский центр «VITA-Med»</h1>
+    <p class="lead">Здесь забота о вашем здоровье - наш приоритет. Наша команда профессионалов готова предоставить вам высококачественные медицинские услуги. Начнем вместе заботиться о вашем здоровье сегодня!</p>
+    <p><a href="https://www.djangoproject.com/" class="btn btn-primary btn-large">Узнать больше &raquo;</a></p>
+</div>-->
+
+
+<!--Карусель-->
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="{% static 'app/content/banner1.svg.jpg'%}" alt="Первый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    <h1>Добро пожаловать в медицинский центр «VITA-Med»</h1>
+                    Здесь забота о вашем здоровье - наш приоритет. Наша команда профессионалов готова предоставить вам высококачественные медицинские услуги. Начнем вместе заботиться о вашем здоровье сегодня!<br />
+                    <br />
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/banner2.svg.jpg'%}" alt="Второй слайд"  class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                     <h2>Передовое оборудование</h2>
+                        <p>
+                            Одним из ключевых видов передового оборудования в медицинских центрах являются диагностические аппараты. 
+                            Они включают в себя ультразвуковые сканеры, компьютерные томографы, рентгеновские аппараты, магнитно-резонансные томографы и другие.
+                        </p><br />
+                    <br />
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/banner3.svg.jpg'%}" alt="Второй слайд"  class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <h2>Квалифицированные специалисты</h2>
+                    <p> 
+                        Квалифицированные врачи медицинского центра являются профессионалами в своей области и обладают высоким уровнем знаний и опыта в медицине.
+                        Они прошли специальное образование, получили необходимые сертификаты и лицензии, чтобы предоставлять медицинские услуги.
+                     </p>
+                <br />
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="media/u1.jpeg" class="pic" width="280"/>
+        <p class="polozh1">Анализы</p>
+    </div>
+    <div class="col-md-4">
+        <img src="media/u2.jpg" class="pic" width="280"/>
+        <p class="polozh2">Приём специалистов</p>
+    </div>
+    <div class="col-md-4">
+        <img src="media/u4.jpg" class="pic" width="280"/>
+        <p class="polozh3">УЗИ</p>
+    </div>
+
+</div>
+
+<div class="vse">
+    <a class="btn btn-secondary" href="{% url 'uslugi' %}?usluga={{ usluga.id }}"><p class="vse_u">Все услуги</p></a>
+</div>
+
+{% endblock %}

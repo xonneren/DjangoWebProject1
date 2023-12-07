@@ -1,0 +1,49 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+
+{% if form != None %}
+<center><h2>Обратная связь</h2></center>
+<hr />
+
+<h4>Возникли проблемы по записи на приём или хотите задать вопрос? Свяжитесь с нами!</h4>
+<br />
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }}<br />
+        <br />
+        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
+        {{ form.city }}<br />
+        <br />
+        <label for="{{ form.category.id_for_label }}">{{ form.category.label }}:</label>
+        {{ form.category }}<br />
+        <br />
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label>
+        {{ form.message }}<br />
+        <br />
+        <label for="{{ form.number.id_for_label }}">{{ form.number.label }}:</label>
+        {{ form.number}}<br />
+        <br />
+
+        <button class="but1" id="b1">Отправить</button>
+    </form>
+</div>
+{% else %}
+<br />
+<h2>Спасибо за ваше обращение! В ближайшее с Вами свяжется менеджер центра</h2>
+<hr />
+<ul>
+    <li><span>Ваше имя: </span> {{ data.name }}</li>
+    <li><span>Место проживания: </span> {{ data.city }}</li>
+    <li><span>Категория обращения: </span> {{ data.category }}</li>
+    <li><span>Ваше сообщение: </span> {{ data.message }}</li>
+    <li><span>Номер телефона для связи: </span> {{ data.number }}</li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+{% endblock %}
