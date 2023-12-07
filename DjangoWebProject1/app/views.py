@@ -19,6 +19,8 @@ from .models import Category     # использование модели ка�
 from .models import Usluga     # использование модели услуг
 from .forms import ZapisForm     # использование формы записи
 from .models import Zayavka
+from .models import Priem
+from .forms import PriemForm     # использование формы записи
 
 from django.views.generic.detail import DetailView
 
@@ -246,5 +248,19 @@ def newzapis(request):
             {
                 'zapisform': zapisform,
                 'title': 'Запись на приём',
+            }
+    )
+
+def priem(request):
+    priems = Priem.objects.filter(request.user.id)
+
+    assert isinstance(request, HttpRequest)
+    
+    return render(
+            request,
+            'app/zapis.html',
+            {
+                'title': 'Карточка пациента',
+                'priems': priems,
             }
     )

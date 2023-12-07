@@ -92,7 +92,7 @@ class Zayavka(models.Model):
         ('2', 'Отменена'),
         ('3', 'Закрыта'),)
 
-    name = models.CharField(max_length = 20, unique=True, verbose_name = "Имя клиента")
+    name = models.CharField(max_length = 100, unique=True, verbose_name = "Имя клиента")
     number = models.CharField(default="+7", unique=True, max_length = 12, verbose_name = "Номер телефона для связи")
     notice = models.BooleanField(default = True, verbose_name = "Согласие на обработку персональных данных")
     status = models.CharField(max_length = 10, verbose_name = "Статус заявки", choices=STATUS_CHOICES, default = 'В очереди')
@@ -111,19 +111,26 @@ class Zayavka(models.Model):
 admin.site.register(Zayavka)
 
 class Priem(models.Model):
-    name_k = models.ForeignKey(Zayavka, to_field = 'name', on_delete = models.CASCADE, related_name='zayavka_name_k', default = '-', verbose_name = "Имя клиента")
+
+    STATUS_CHOICES = (
+        ('1', 'Выполнен'),
+        ('2', 'Отменён'),
+        ('3', 'Запись подтверждена'),)
+
+    name_k = models.ForeignKey(Zayavka, to_field = 'name', on_delete = models.CASCADE, related_name='zayavka_name_k', default = '-', verbose_name = "Ф.И.О.")
     usluga = models.ForeignKey(Usluga, on_delete = models.CASCADE, verbose_name = "Наименование услуги")
     date = models.DateTimeField(default = datetime.now(), db_index = True, verbose_name = "Дата приёма")
     number_k = models.CharField(default="+7", unique=True, max_length = 12, verbose_name = "Номер телефона для связи")
+    status = models.CharField(max_length = 10, verbose_name = "Статус заявки", choices=STATUS_CHOICES, default = '----')
 
     def get_absolute_url(self):
-        return reverse("priem", args=[str(self.id)])
+        return reverse("priems", args=[str(self.id)])
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
-        db_table = "Priem"
+        db_table = "Priems"
         verbose_name = "Запись на приём"
         verbose_name_plural = "Записи на приём"
 

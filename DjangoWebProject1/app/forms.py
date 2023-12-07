@@ -52,3 +52,10 @@ class ZapisForm(forms.ModelForm):
         model = Zayavka
         fields = ('name', 'number', 'notice')
         labels = {'name': "Имя клиента", 'number': "Номер телефона", 'notice': "Согласен(-на) с условиями предоставления услуг и обработки персональных данных"}
+
+
+class PriemForm(forms.ModelForm):
+    class Meta:
+        model = Priem
+        fields = ('name_k', 'usluga', 'date', 'number_k', 'status')
+        labels = {'name_k': "Ф.И.О", 'usluga': "Наименование услуги", 'date': "Дата приёма", 'number_k': "Номер телефона для связи", 'status': "Статус"}

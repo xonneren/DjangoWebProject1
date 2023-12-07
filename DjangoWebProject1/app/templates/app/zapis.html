@@ -1,15 +1,23 @@
 {% extends "app/layout.html" %}
+
 {% block content %}
 
-<h2>{{ title }}</h2>
-
+<center><h2>{{ title }}</h2></center>
+<hr />
 <br />
-<h2>Спасибо за ваше обращение! В ближайшее время с Вами свяжется менеджер!</h2>
-<br />
+{% for priem in priems %}
 
-{% endblock %}
-
-{% block scripts %}
-{% load staticfiles %}
-<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+<div class="">
+    {{ priem.name }}
+    <br />
+    {{ priem.usluga }}
+    <hr>
+    {{ priem.date }}
+    <hr>
+    {{ priem.number_k }}
+    <hr>
+    {{ priem.status }}
+</div>
+      
+{% endfor %}
 {% endblock %}

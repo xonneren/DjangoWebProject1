@@ -40,6 +40,7 @@ urlpatterns = [
     path('uslugi/', views.uslugi, name='uslugi'),
     path('uslugi/<int:list_id>', views.uslugi, name='uslugi'),
     path('newzapis/', views.newzapis, name='newzapis'),
+    path('zapis/', views.priem, name='zapis'),
 
 ]
 
