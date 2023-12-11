@@ -8,15 +8,13 @@
 {% for priem in priems %}
 
 <div class="">
-    {{ priem.name }}
+    <h2>{{ priem.date }}</h2>
+    <h3>{{ priem.name_k }}</h3>
+    <hr />
+    <h4>{{ priem.usluga }}</h4>
     <br />
-    {{ priem.usluga }}
-    <hr>
-    {{ priem.date }}
-    <hr>
     {{ priem.number_k }}
     <hr>
-    {{ priem.status }}
 </div>
       
 {% endfor %}

@@ -192,3 +192,16 @@ td {
 .nazad {
     margin-bottom: 20px;
 }
+
+.citata {
+    text-align: right;
+    color: #662479;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+.avtor {
+    text-align: right;
+    font-size: 14px;
+    font-style: italic;
+}

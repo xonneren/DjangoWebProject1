@@ -236,6 +236,7 @@ def newzapis(request):
         zapisform = ZapisForm(request.POST)
         if zapisform.is_valid():
             zapis_f = zapisform.save(commit=False)
+            zapis_f.user = request.user
             zapis_f.save()
 
             return redirect('newzapis')
@@ -252,9 +253,8 @@ def newzapis(request):
     )
 
 def priem(request):
-    priems = Priem.objects.filter(request.user.id)
-
-    assert isinstance(request, HttpRequest)
+    zapisi = Zayavka.objects.filter(user=request.user)
+    priems = Priem.objects.filter(user_name__in=zapisi)
     
     return render(
             request,

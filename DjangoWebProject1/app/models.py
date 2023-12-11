@@ -9,7 +9,7 @@ class Blog(models.Model):
     title = models.TextField(max_length = 100, unique_for_date = "posted", verbose_name ="Заголовок")
     description = models.TextField(verbose_name = "Краткое содержание")
     content = models.TextField(verbose_name = "Полное содержание")
-    posted = models.DateTimeField(default = datetime.now(), db_index = True, verbose_name = "Опубликовано")
+    posted = models.DateTimeField(db_index = True, verbose_name = "Опубликовано")
     author = models.ForeignKey(User, null = True, blank = True, on_delete = models.SET_NULL, verbose_name = "Автор")
     image = models.FileField(default = 'temp.jpg', verbose_name = "Путь к картинке")
 
@@ -92,6 +92,7 @@ class Zayavka(models.Model):
         ('2', 'Отменена'),
         ('3', 'Закрыта'),)
 
+    user = models.ForeignKey(User, default = 1, on_delete = models.CASCADE, verbose_name = "Пользователь")
     name = models.CharField(max_length = 100, unique=True, verbose_name = "Имя клиента")
     number = models.CharField(default="+7", unique=True, max_length = 12, verbose_name = "Номер телефона для связи")
     notice = models.BooleanField(default = True, verbose_name = "Согласие на обработку персональных данных")
@@ -113,11 +114,12 @@ admin.site.register(Zayavka)
 class Priem(models.Model):
 
     STATUS_CHOICES = (
-        ('1', 'Выполнен'),
-        ('2', 'Отменён'),
+        ('1', 'Клиент принят'),
+        ('2', 'Приём отменён'),
         ('3', 'Запись подтверждена'),)
 
-    name_k = models.ForeignKey(Zayavka, to_field = 'name', on_delete = models.CASCADE, related_name='zayavka_name_k', default = '-', verbose_name = "Ф.И.О.")
+    user_name = models.ForeignKey(Zayavka, null = True, on_delete = models.CASCADE, verbose_name = "Пользователь")
+    name_k = models.CharField(max_length = 100, verbose_name = "Ф.И.О. клиента")
     usluga = models.ForeignKey(Usluga, on_delete = models.CASCADE, verbose_name = "Наименование услуги")
     date = models.DateTimeField(default = datetime.now(), db_index = True, verbose_name = "Дата приёма")
     number_k = models.CharField(default="+7", unique=True, max_length = 12, verbose_name = "Номер телефона для связи")
@@ -127,7 +129,7 @@ class Priem(models.Model):
         return reverse("priems", args=[str(self.id)])
 
     def __str__(self):
-        return str(self.name)
+        return str(self.name_k)
 
     class Meta:
         db_table = "Priems"

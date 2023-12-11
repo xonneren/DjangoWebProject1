@@ -4,7 +4,8 @@
 <center><h2>{{ title }}</h2></center>
 <hr />
 
-<h4>Хотите записаться на приём в наш центр? Закажите обратный звонок и мы свяжемся с Вами!</h4>
+{% if user.is_authenticated %}
+<center><h4>Закажите обратный звонок и мы свяжемся с Вами!</h4></center>
 <div class="forma">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -16,5 +17,11 @@
         </div>
     </form>
 </div>
+
+{% else %}
+
+<center><h3>Для записи на приём, пожалуйста, авторизуйтесь</h3></center>
+{% endif %}
+<br />
 
 {% endblock %}

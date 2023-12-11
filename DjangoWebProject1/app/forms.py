@@ -48,6 +48,7 @@ class BlogForm(forms.ModelForm):
         labels = {'title': "Заголовок", 'description': "Краткое содержание", 'content': "Полное содержание", 'image': "Картинка"}
 
 class ZapisForm(forms.ModelForm):
+
     class Meta:
         model = Zayavka
         fields = ('name', 'number', 'notice')
@@ -57,5 +58,5 @@ class ZapisForm(forms.ModelForm):
 class PriemForm(forms.ModelForm):
     class Meta:
         model = Priem
-        fields = ('name_k', 'usluga', 'date', 'number_k', 'status')
-        labels = {'name_k': "Ф.И.О", 'usluga': "Наименование услуги", 'date': "Дата приёма", 'number_k': "Номер телефона для связи", 'status': "Статус"}
+        fields = ('user_name','name_k', 'usluga', 'date', 'number_k', 'status')
+        labels = {'user_name' : "Пользователь", 'name_k': "Ф.И.О клиента", 'usluga': "Наименование услуги", 'date': "Дата приёма", 'number_k': "Номер телефона для связи", 'status': "Статус"}
