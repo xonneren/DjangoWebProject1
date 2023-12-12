@@ -10,9 +10,10 @@ import os
 import sys
 
 if __name__ == '__main__':
-    os.environ.setdefault(
-        'DJANGO_SETTINGS_MODULE',
-        'DjangoWebProject1.settings')
+    env = os.environ.get('DJANGO_ENV', 'development')
+    settings_module = f'DjangoWebProject1.{env}'
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
